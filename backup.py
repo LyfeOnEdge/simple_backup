@@ -20,8 +20,7 @@ class backup_object:
         self.target = target_path
 
     def get_backups(self):
-        if self.target:
-            return subfiles(self.target)
+        return subfiles(self.backups_path)
 
     def parse_date(self, date):
         if date:
@@ -38,9 +37,9 @@ class backup_object:
         if self.target:
             open_folder_in_window(self.target)
 
-    # def deletebackup(self,filetodelete):
-    #     os.remove(filetodelete)
-    #     self.printtoboth("\nDeleted backup {}\n".format(filetodelete))
+    def deletebackup(self,backup_file):
+        os.remove(os.path.join(self.backups_path, filetodelete))
+        self.print("\nDeleted backup {}\n".format(filetodelete))
 
     def makebackup(self):
         if self.target:
